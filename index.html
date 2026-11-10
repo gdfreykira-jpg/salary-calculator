@@ -1,358 +1,365 @@
-<p>&lt;!DOCTYPE html&gt;</p>
-<p>&lt;html lang=&quot;en&quot; class=&quot;dark&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>&nbsp; &nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;</p>
-<p>&nbsp; &nbsp; &lt;title&gt;****** &amp; OT Calculator&lt;/title&gt;</p>
-<p>&nbsp; &nbsp; &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;</p>
-<p>&nbsp; &nbsp; &lt;**** href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</p>
-<p>&nbsp; &nbsp; &lt;style&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; body {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-family: &apos;Inter&apos;, sans-serif;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-tap-highlight-color: transparent;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Custom scrollbar for webkit */</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 6px;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar-track {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #1f2937;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar-thumb {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #4b5563;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border-radius: 10px;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar-thumb:hover {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #6b7280;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; input[type=&quot;number&quot;]::-webkit-inner-spin-button,&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; input[type=&quot;number&quot;]::-webkit-outer-spin-button {&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-appearance: none;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin: 0;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &lt;/style&gt;</p>
-<p>&lt;/head&gt;</p>
-<p>&lt;body class=&quot;bg-gray-900 text-gray-2** pb-40&quot;&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;max-w-lg mx-auto p-4 md:p-6&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;header class=&quot;text-****** mb-6&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1 class=&quot;text-2xl font-bold text-white tracking-wide&quot;&gt;Salary Calculator&lt;/h1&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-gray-400 text-sm&quot;&gt;Monthly Payroll &amp; OT Tracker&lt;/p&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/header&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Basic Info Section --&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-lg font-semibold text-blue-400 mb-4&quot;&gt;1. Basic Information&lt;/h2&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;mb-4&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;***** text-sm text-gray-400 mb-1&quot;&gt;Basic Salary (RM)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;fullSalary&quot; placeholder=&quot;e.g., 2580.00&quot; value=&quot;2580&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white text-lg focus:ring-2 focus:ring-blue-5** outline-**** transition-all&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;**** grid-cols-2 gap-4 text-sm&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;bg-gray-700 p-3 rounded-lg border border-gray-600&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;block text-gray-400 mb-1&quot;&gt;35% Advance&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;dispAdvance&quot; class=&quot;text-lg font-bold text-yellow-400&quot;&gt;** 0.00&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;bg-gray-700 p-3 rounded-lg ****** border-gray-600&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;block text-gray-400 mb-1&quot;&gt;65% End Salary&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;dispEndSalary&quot; class=&quot;text-lg font-bold text-green-400&quot;&gt;RM 0.00&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Allowances Section --&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;bg-gray-8** rounded-xl p-5 shadow-** mb-5 ****** border-gray-700&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-lg font-******** text-blue-4** mb-4&quot;&gt;2. Allowances&lt;/h2&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;**** grid-cols-2 gap-4&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;***** text-sm text-gray-400 mb-1&quot;&gt;Transport (RM)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;transportAllow&quot; value=&quot;40&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-blue-5** outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;***** text-sm text-gray-400 mb-1&quot;&gt;Shift (RM)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;shiftAllow&quot; value=&quot;110&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-***** focus:ring-2 focus:ring-blue-500 outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Overtime Tracker --&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;******* class=&quot;bg-gray-8** rounded-** p-5 shadow-lg mb-5 border border-gray-700&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;flex justify-between items-****** mb-4&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-** font-******** text-blue-400&quot;&gt;3. Overtime Tracker&lt;/h2&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-right&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;**** class=&quot;text-xs text-gray-400 block&quot;&gt;**** ****** Rate&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;hourlyRate&quot; class=&quot;text-sm font-bold text-white&quot;&gt;RM 0.00&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;bg-gray-900 rounded-lg ****** border-gray-700 overflow-hidden&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-4 gap-1 p-2 bg-gray-7** text-xs font-semibold text-center text-gray-300&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;Date&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;1.5x&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;2.0x&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;3.0x&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** id=&quot;ot-rows&quot; class=&quot;max-h-80 overflow-y-auto p-2&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- ** will ******** **** here (22nd to 21st) --&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;grid grid-cols-4 gap-1 p-3 border-t border-gray-6** bg-gray-8** text-sm font-bold text-center&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;text-left text-gray-400 pl-2&quot;&gt;Total Hrs&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;tot15&quot; class=&quot;text-white&quot;&gt;0&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;tot20&quot; class=&quot;text-white&quot;&gt;0&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** id=&quot;tot30&quot; class=&quot;text-white&quot;&gt;0&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;p-3 bg-gray-700 text-center border-t border-gray-6** **** justify-******* items-center px-4&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;text-sm text-gray-400 font-semibold&quot;&gt;Total OT Pay: &lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;dispTotalOT&quot; class=&quot;text-** font-**** text-green-400&quot;&gt;RM 0.00&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Deductions Section --&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;bg-gray-8** rounded-xl p-5 shadow-lg mb-5 border border-gray-700&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-** font-******** text-red-400 mb-4&quot;&gt;4. Deductions&lt;/h2&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-2 gap-4 mb-4&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;***** class=&quot;block text-sm text-gray-4** mb-1&quot;&gt;EPF (11% Auto)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;epfDeduct&quot; ******** class=&quot;w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm text-gray-400 mb-1&quot;&gt;Advance (35% Auto)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;***** type=&quot;number&quot; id=&quot;advanceDeduct&quot; readonly class=&quot;w-full bg-gray-9** ****** border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm text-gray-400 mb-1&quot;&gt;***** (RM)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;socsoDeduct&quot; value=&quot;20.75&quot; class=&quot;w-full bg-gray-700 ****** border-gray-6** rounded-lg p-2 text-***** focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-** text-gray-400 mb-1&quot;&gt;EIS (RM)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;eisDeduct&quot; value=&quot;8.30&quot; class=&quot;w-**** bg-gray-7** border border-gray-6** rounded-** p-2 text-white focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-** text-gray-400 mb-1&quot;&gt;Tax / *** (RM)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;taxDeduct&quot; value=&quot;61.70&quot; class=&quot;w-**** bg-gray-7** border border-gray-600 rounded-lg p-2 text-***** focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm text-gray-4** mb-1&quot;&gt;**** Allowance (RM)&lt;/label&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;foodDeduct&quot; value=&quot;0&quot; placeholder=&quot;0.00&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;**** justify-between items-center border-t border-gray-700 pt-4 px-2&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;text-sm text-gray-400 font-semibold&quot;&gt;Total Deductions: &lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;**** id=&quot;dispTotalDeductions&quot; class=&quot;text-** font-bold text-red-400&quot;&gt;RM 0.00&lt;/span&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &lt;/div&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &lt;!-- ****** Summary Footer --&gt;</p>
-<p>&nbsp; &nbsp; &lt;*** class=&quot;fixed bottom-0 left-0 w-**** bg-gray-800 border-t border-gray-700 p-4 shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.5)] z-50&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;max-w-lg mx-auto flex justify-between items-center&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-xs text-gray-400&quot;&gt;Gross Pay: &lt;span id=&quot;dispGross&quot; class=&quot;text-gray-2** font-semibold&quot;&gt;** 0.00&lt;/span&gt;&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-sm font-******** text-gray-2** mt-1&quot;&gt;*** of Month Receive&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-right&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;dispNetPay&quot; class=&quot;text-2xl font-bold text-green-400 drop-shadow-md&quot;&gt;RM 0.00&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;/div&gt;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &lt;script type=&quot;module&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; import { initializeApp } from &quot;https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js&quot;;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; import { getAuth, signInAnonymously, signInWithCustomToken } from &quot;https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js&quot;;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; import { getFirestore, doc, getDoc, setDoc } from &quot;https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js&quot;;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; // Global variables ******** by the environment</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; const appId = typeof __app_id !== &apos;undefined&apos; ? __app_** : &apos;default-salary-app&apos;;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; const firebaseConfig = typeof __firebase_config !== &apos;undefined&apos; ? JSON.parse(__firebase_config) : null;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; let db, auth, userId;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; // Initialize OT Rows (22nd to 21st)</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; const otContainer = document.getElementById(&apos;ot-rows&apos;);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; let days = [];</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; for(*** i=22; i&lt;=31; i++) days.push(i);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; for(let i=1; i&lt;=21; i++) days.push(i);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; let ****** = &apos;&apos;;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; days.forEach(day =&gt; {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; otHTML += `</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-4 gap-1 items-center text-center py-2 border-b border-gray-800/50&quot;&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;font-semibold text-gray-400 text-sm&quot;&gt;${day}&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;&lt;input type=&quot;number&quot; id=&quot;ot-15-${day}&quot; step=&quot;0.5&quot; min=&quot;0&quot; class=&quot;ot-15 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none&quot; /&gt;&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;&lt;input type=&quot;number&quot; id=&quot;ot-20-${day}&quot; step=&quot;0.5&quot; min=&quot;0&quot; class=&quot;ot-20 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none&quot; /&gt;&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;&lt;input type=&quot;number&quot; id=&quot;ot-30-${day}&quot; step=&quot;0.5&quot; min=&quot;0&quot; class=&quot;ot-30 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none&quot; /&gt;&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;`;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; });</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; otContainer.innerHTML = otHTML;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; // Formatter *** Currency</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; const formatRM = (num) =&gt; &apos;RM &apos; + num.toLocaleString(&apos;en-MY&apos;, {minimumFractionDigits: 2, maximumFractionDigits: 2});</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; // Calculation Logic</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; function calculate() {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 1. ***** Info</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ********** = parseFloat(document.getElementById(&apos;fullSalary&apos;).value) || 0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const advance35 = fullSalary * 0.35;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const endSalary65 = fullSalary * 0.65;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispAdvance&apos;).********* = formatRM(advance35);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispEndSalary&apos;).innerText = formatRM(endSalary65);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 2. Allowances</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ************** = parseFloat(document.getElementById(&apos;transportAllow&apos;).value) || 0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const shiftAllow = parseFloat(document.getElementById(&apos;shiftAllow&apos;).value) || 0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const totalAllowances = transportAllow + shiftAllow;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 3. Overtime</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const baseHourly = (********** / 26) / 8;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;hourlyRate&apos;).********* = formatRM(baseHourly) + &apos;/hr&apos;;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; let sum15 = 0, sum20 = 0, sum30 = 0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelectorAll(&apos;.ot-15&apos;).forEach(el =&gt; sum15 += parseFloat(el.value) || 0);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelectorAll(&apos;.ot-20&apos;).forEach(** =&gt; sum20 += parseFloat(el.value) || 0);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelectorAll(&apos;.ot-30&apos;).forEach(el =&gt; sum30 += parseFloat(el.value) || 0);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;tot15&apos;).innerText = sum15;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;tot20&apos;).innerText = sum20;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;tot30&apos;).innerText = sum30;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** pay15 = sum15 * baseHourly * 1.5;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const pay20 = sum20 * baseHourly * 2.0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const pay30 = sum30 * ********** * 3.0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ********** = pay15 + pay20 + pay30;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispTotalOT&apos;).innerText = formatRM(totalOTPay);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 4. Deductions</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const epf = fullSalary * 0.11;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;epfDeduct&apos;).***** = epf.toFixed(2);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;advanceDeduct&apos;).***** = advance35.toFixed(2);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** socso = parseFloat(document.getElementById(&apos;socsoDeduct&apos;).value) || 0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** eis = parseFloat(document.getElementById(&apos;eisDeduct&apos;).value) || 0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** tax = parseFloat(document.getElementById(&apos;taxDeduct&apos;).value) || 0;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const food = parseFloat(document.getElementById(&apos;foodDeduct&apos;).value) || 0;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const totalDeductions = epf + advance35 + socso + *** + tax + food;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispTotalDeductions&apos;).innerText = formatRM(totalDeductions);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 5. ***** Summary</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** grossPay = ********** + totalAllowances + totalOTPay;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ****** = grossPay - totalDeductions;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispGross&apos;).innerText = formatRM(grossPay);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispNetPay&apos;).innerText = formatRM(netPay);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; // --- Data *********** Logic (Firebase) ---</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; async function loadData() {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (!****** || !db) return;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; try {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** docRef = doc(db, &apos;artifacts&apos;, appId, &apos;users&apos;, userId, &apos;salaryData&apos;, &apos;currentMonth&apos;);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ******* = await getDoc(docRef);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (docSnap.exists()) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** data = docSnap.data();</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.fullSalary !== undefined) document.getElementById(&apos;fullSalary&apos;).value = data.fullSalary;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.************** !== undefined) document.getElementById(&apos;transportAllow&apos;).value = data.transportAllow;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.********** !== undefined) document.getElementById(&apos;shiftAllow&apos;).***** = data.shiftAllow;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.socsoDeduct !== undefined) document.getElementById(&apos;socsoDeduct&apos;).***** = data.socsoDeduct;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.eisDeduct !== undefined) document.getElementById(&apos;eisDeduct&apos;).value = data.eisDeduct;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.********* !== undefined) document.getElementById(&apos;taxDeduct&apos;).value = data.taxDeduct;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.foodDeduct !== undefined) document.getElementById(&apos;foodDeduct&apos;).***** = data.foodDeduct;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (data.otData) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; days.forEach(day =&gt; {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.otData[day]) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(`ot-15-${day}`).value = data.otData[day][15] || &apos;&apos;;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(`ot-20-${day}`).value = data.otData[day][20] || &apos;&apos;;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(`ot-30-${day}`).value = data.otData[day][30] || &apos;&apos;;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calculate(); // Recalculate with ****** data</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } catch (err) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(&quot;Error loading data: &quot;, err);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; async function saveData() {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ** (!userId || !db) return;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const data = {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fullSalary: document.getElementById(&apos;fullSalary&apos;).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transportAllow: document.getElementById(&apos;transportAllow&apos;).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shiftAllow: document.getElementById(&apos;shiftAllow&apos;).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; socsoDeduct: document.getElementById(&apos;socsoDeduct&apos;).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; eisDeduct: document.getElementById(&apos;eisDeduct&apos;).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; taxDeduct: document.getElementById(&apos;taxDeduct&apos;).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foodDeduct: document.getElementById(&apos;foodDeduct&apos;).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; otData: {}</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; days.forEach(day =&gt; {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data.otData[day] = {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 15: document.getElementById(`ot-15-${day}`).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 20: document.getElementById(`ot-20-${day}`).value,</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 30: document.getElementById(`ot-30-${day}`).value</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; try {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** docRef = doc(db, &apos;artifacts&apos;, appId, &apos;users&apos;, userId, &apos;salaryData&apos;, &apos;currentMonth&apos;);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; await setDoc(docRef, data);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } catch (err) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(&quot;***** saving data: &quot;, err);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; let saveTimeout;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; function handleInput() {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calculate(); // Update the ** instantly</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Wait 1.5 ******* ***** typing ***** to **** to the database to prevent spamming saves</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearTimeout(saveTimeout);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; saveTimeout = setTimeout(saveData, 1500);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; // Initialize App &amp; Firebase</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; async function initApp() {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Initial Calculation for ******* layout</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calculate();</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Listen for input changes anywhere on the page</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.addEventListener(&apos;input&apos;, handleInput);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Connect ** Cloud Database</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (firebaseConfig) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; try {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** app = initializeApp(firebaseConfig);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; db = getFirestore(app);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **** = getAuth(app);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Sign ** ******** to **** private data</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (typeof __initial_auth_token !== &apos;undefined&apos;) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; await signInWithCustomToken(auth, __initial_auth_token);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** signInAnonymously(auth);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; userId = auth.currentUser?.uid;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (userId) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; await loadData();</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } catch (error) {</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(&quot;Firebase **** failed:&quot;, error);</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
-<p><br></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; initApp();</p>
-<p>&nbsp; &nbsp; &lt;/script&gt;</p>
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</p>
-<div style="color: red">Word to HTML trial - please <a href="https://wordtohtml.net/site/payment">Go PRO</a> to get whole HTML.</div>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Salary & OT Calculator</title>
+    
+    <!-- iOS / Apple Web App Configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Salary Calc">
+    <link rel="apple-touch-icon" href="https://img.icons8.com/color/180/calculator.png">
+    <meta name="theme-color" content="#111827">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; 
+        }
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 pb-40">
+
+    <div class="max-w-lg mx-auto p-4 md:p-6">
+        <header class="text-center mb-6">
+            <h1 class="text-2xl font-bold text-white tracking-wide">Salary Calculator</h1>
+            <p class="text-gray-400 text-sm">Monthly Payroll & OT Tracker</p>
+        </header>
+
+        <!-- Basic Info Section -->
+        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+            <h2 class="text-lg font-semibold text-blue-400 mb-4">1. Basic Information</h2>
+            <div class="mb-4">
+                <label class="block text-sm text-gray-400 mb-1">Basic Salary (RM)</label>
+                <input type="number" id="fullSalary" placeholder="e.g., 2580.00" value="2580" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white text-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+            </div>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="bg-gray-700 p-3 rounded-lg border border-gray-600">
+                    <span class="block text-gray-400 mb-1">35% Advance</span>
+                    <span id="dispAdvance" class="text-lg font-bold text-yellow-400">RM 0.00</span>
+                </div>
+                <div class="bg-gray-700 p-3 rounded-lg border border-gray-600">
+                    <span class="block text-gray-400 mb-1">65% End Salary</span>
+                    <span id="dispEndSalary" class="text-lg font-bold text-green-400">RM 0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Allowances Section -->
+        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+            <h2 class="text-lg font-semibold text-blue-400 mb-4">2. Allowances</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Transport (RM)</label>
+                    <input type="number" id="transportAllow" value="40" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Shift (RM)</label>
+                    <input type="number" id="shiftAllow" value="110" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+            </div>
+        </section>
+
+        <!-- Overtime Tracker -->
+        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold text-blue-400">3. Overtime Tracker</h2>
+                <div class="text-right">
+                    <span class="text-xs text-gray-400 block">Base Hourly Rate</span>
+                    <span id="hourlyRate" class="text-sm font-bold text-white">RM 0.00</span>
+                </div>
+            </div>
+            
+            <div class="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden">
+                <div class="grid grid-cols-4 gap-1 p-2 bg-gray-700 text-xs font-semibold text-center text-gray-300">
+                    <div>Date</div>
+                    <div>1.5x</div>
+                    <div>2.0x</div>
+                    <div>3.0x</div>
+                </div>
+                <div id="ot-rows" class="max-h-80 overflow-y-auto p-2">
+                    <!-- JS will populate rows here (22nd to 21st) -->
+                </div>
+                <div class="grid grid-cols-4 gap-1 p-3 border-t border-gray-600 bg-gray-800 text-sm font-bold text-center">
+                    <div class="text-left text-gray-400 pl-2">Total Hrs</div>
+                    <div id="tot15" class="text-white">0</div>
+                    <div id="tot20" class="text-white">0</div>
+                    <div id="tot30" class="text-white">0</div>
+                </div>
+                <div class="p-3 bg-gray-700 text-center border-t border-gray-600 flex justify-between items-center px-4">
+                    <span class="text-sm text-gray-400 font-semibold">Total OT Pay: </span>
+                    <span id="dispTotalOT" class="text-lg font-bold text-green-400">RM 0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deductions Section -->
+        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+            <h2 class="text-lg font-semibold text-red-400 mb-4">4. Deductions</h2>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">EPF (11% Auto)</label>
+                    <input type="number" id="epfDeduct" readonly class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Advance (35% Auto)</label>
+                    <input type="number" id="advanceDeduct" readonly class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">SOCSO (RM)</label>
+                    <input type="number" id="socsoDeduct" value="20.75" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">EIS (RM)</label>
+                    <input type="number" id="eisDeduct" value="8.30" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Tax / PCB (RM)</label>
+                    <input type="number" id="taxDeduct" value="61.70" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Food Allowance (RM)</label>
+                    <input type="number" id="foodDeduct" value="0" placeholder="0.00" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
+                </div>
+            </div>
+            <div class="flex justify-between items-center border-t border-gray-700 pt-4 px-2">
+                <span class="text-sm text-gray-400 font-semibold">Total Deductions: </span>
+                <span id="dispTotalDeductions" class="text-lg font-bold text-red-400">RM 0.00</span>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Sticky Summary Footer -->
+    <div class="fixed bottom-0 left-0 w-full bg-gray-800 border-t border-gray-700 p-4 shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.5)] z-50">
+        <div class="max-w-lg mx-auto flex justify-between items-center">
+            <div>
+                <div class="text-xs text-gray-400">Gross Pay: <span id="dispGross" class="text-gray-200 font-semibold">RM 0.00</span></div>
+                <div class="text-sm font-semibold text-gray-200 mt-1">End of Month Receive</div>
+            </div>
+            <div class="text-right">
+                <div id="dispNetPay" class="text-2xl font-bold text-green-400 drop-shadow-md">RM 0.00</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables provided by the environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-salary-app';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        
+        let db, auth, userId;
+
+        // Initialize OT Rows (22nd to 21st)
+        const otContainer = document.getElementById('ot-rows');
+        let days = [];
+        for(let i=22; i<=31; i++) days.push(i);
+        for(let i=1; i<=21; i++) days.push(i);
+
+        let otHTML = '';
+        days.forEach(day => {
+            otHTML += `
+            <div class="grid grid-cols-4 gap-1 items-center text-center py-2 border-b border-gray-800/50">
+                <div class="font-semibold text-gray-400 text-sm">${day}</div>
+                <div><input type="number" id="ot-15-${day}" step="0.5" min="0" class="ot-15 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none" /></div>
+                <div><input type="number" id="ot-20-${day}" step="0.5" min="0" class="ot-20 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none" /></div>
+                <div><input type="number" id="ot-30-${day}" step="0.5" min="0" class="ot-30 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none" /></div>
+            </div>`;
+        });
+        otContainer.innerHTML = otHTML;
+
+        // Formatter for Currency
+        const formatRM = (num) => 'RM ' + num.toLocaleString('en-MY', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        // Calculation Logic
+        function calculate() {
+            // 1. Basic Info
+            const fullSalary = parseFloat(document.getElementById('fullSalary').value) || 0;
+            const advance35 = fullSalary * 0.35;
+            const endSalary65 = fullSalary * 0.65;
+            
+            document.getElementById('dispAdvance').innerText = formatRM(advance35);
+            document.getElementById('dispEndSalary').innerText = formatRM(endSalary65);
+
+            // 2. Allowances
+            const transportAllow = parseFloat(document.getElementById('transportAllow').value) || 0;
+            const shiftAllow = parseFloat(document.getElementById('shiftAllow').value) || 0;
+            const totalAllowances = transportAllow + shiftAllow;
+
+            // 3. Overtime
+            const baseHourly = (fullSalary / 26) / 8;
+            document.getElementById('hourlyRate').innerText = formatRM(baseHourly) + '/hr';
+
+            let sum15 = 0, sum20 = 0, sum30 = 0;
+            
+            document.querySelectorAll('.ot-15').forEach(el => sum15 += parseFloat(el.value) || 0);
+            document.querySelectorAll('.ot-20').forEach(el => sum20 += parseFloat(el.value) || 0);
+            document.querySelectorAll('.ot-30').forEach(el => sum30 += parseFloat(el.value) || 0);
+
+            document.getElementById('tot15').innerText = sum15;
+            document.getElementById('tot20').innerText = sum20;
+            document.getElementById('tot30').innerText = sum30;
+
+            const pay15 = sum15 * baseHourly * 1.5;
+            const pay20 = sum20 * baseHourly * 2.0;
+            const pay30 = sum30 * baseHourly * 3.0;
+            const totalOTPay = pay15 + pay20 + pay30;
+
+            document.getElementById('dispTotalOT').innerText = formatRM(totalOTPay);
+
+            // 4. Deductions
+            const epf = fullSalary * 0.11;
+            document.getElementById('epfDeduct').value = epf.toFixed(2);
+            document.getElementById('advanceDeduct').value = advance35.toFixed(2);
+
+            const socso = parseFloat(document.getElementById('socsoDeduct').value) || 0;
+            const eis = parseFloat(document.getElementById('eisDeduct').value) || 0;
+            const tax = parseFloat(document.getElementById('taxDeduct').value) || 0;
+            const food = parseFloat(document.getElementById('foodDeduct').value) || 0;
+
+            const totalDeductions = epf + advance35 + socso + eis + tax + food;
+            document.getElementById('dispTotalDeductions').innerText = formatRM(totalDeductions);
+
+            // 5. Final Summary
+            const grossPay = fullSalary + totalAllowances + totalOTPay;
+            const netPay = grossPay - totalDeductions;
+
+            document.getElementById('dispGross').innerText = formatRM(grossPay);
+            document.getElementById('dispNetPay').innerText = formatRM(netPay);
+        }
+
+        // --- Data Persistence Logic (Firebase) ---
+        
+        async function loadData() {
+            if (!userId || !db) return;
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'users', userId, 'salaryData', 'currentMonth');
+                const docSnap = await getDoc(docRef);
+                
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    
+                    if(data.fullSalary !== undefined) document.getElementById('fullSalary').value = data.fullSalary;
+                    if(data.transportAllow !== undefined) document.getElementById('transportAllow').value = data.transportAllow;
+                    if(data.shiftAllow !== undefined) document.getElementById('shiftAllow').value = data.shiftAllow;
+                    if(data.socsoDeduct !== undefined) document.getElementById('socsoDeduct').value = data.socsoDeduct;
+                    if(data.eisDeduct !== undefined) document.getElementById('eisDeduct').value = data.eisDeduct;
+                    if(data.taxDeduct !== undefined) document.getElementById('taxDeduct').value = data.taxDeduct;
+                    if(data.foodDeduct !== undefined) document.getElementById('foodDeduct').value = data.foodDeduct;
+                    
+                    if (data.otData) {
+                        days.forEach(day => {
+                            if(data.otData[day]) {
+                                document.getElementById(`ot-15-${day}`).value = data.otData[day][15] || '';
+                                document.getElementById(`ot-20-${day}`).value = data.otData[day][20] || '';
+                                document.getElementById(`ot-30-${day}`).value = data.otData[day][30] || '';
+                            }
+                        });
+                    }
+                    calculate(); // Recalculate with loaded data
+                }
+            } catch (err) {
+                console.error("Error loading data: ", err);
+            }
+        }
+
+        async function saveData() {
+            if (!userId || !db) return;
+            const data = {
+                fullSalary: document.getElementById('fullSalary').value,
+                transportAllow: document.getElementById('transportAllow').value,
+                shiftAllow: document.getElementById('shiftAllow').value,
+                socsoDeduct: document.getElementById('socsoDeduct').value,
+                eisDeduct: document.getElementById('eisDeduct').value,
+                taxDeduct: document.getElementById('taxDeduct').value,
+                foodDeduct: document.getElementById('foodDeduct').value,
+                otData: {}
+            };
+            
+            days.forEach(day => {
+                data.otData[day] = {
+                    15: document.getElementById(`ot-15-${day}`).value,
+                    20: document.getElementById(`ot-20-${day}`).value,
+                    30: document.getElementById(`ot-30-${day}`).value
+                };
+            });
+
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'users', userId, 'salaryData', 'currentMonth');
+                await setDoc(docRef, data);
+            } catch (err) {
+                console.error("Error saving data: ", err);
+            }
+        }
+
+        let saveTimeout;
+        function handleInput() {
+            calculate(); // Update the UI instantly
+            
+            // Wait 1.5 seconds after typing stops to save to the database to prevent spamming saves
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(saveData, 1500);
+        }
+
+        // Initialize App & Firebase
+        async function initApp() {
+            // Initial Calculation for default layout
+            calculate();
+            
+            // Listen for input changes anywhere on the page
+            document.body.addEventListener('input', handleInput);
+
+            // Connect to Cloud Database
+            if (firebaseConfig) {
+                try {
+                    const app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    
+                    // Sign in silently to save private data
+                    if (typeof __initial_auth_token !== 'undefined') {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                    
+                    userId = auth.currentUser?.uid;
+                    if (userId) {
+                        await loadData();
+                    }
+                } catch (error) {
+                    console.error("Firebase init failed:", error);
+                }
+            }
+        }
+
+        initApp();
+    </script>
+</body>
+</html>
