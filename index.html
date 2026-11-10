@@ -1,365 +1,386 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Salary & OT Calculator</title>
-    
-    <!-- iOS / Apple Web App Configuration -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Salary Calc">
-    <link rel="apple-touch-icon" href="https://img.icons8.com/color/180/calculator.png">
-    <meta name="theme-color" content="#111827">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Salary & OT Calculator</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-        /* Custom scrollbar for webkit */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1f2937; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4b5563; 
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280; 
-        }
-        input[type="number"]::-webkit-inner-spin-button, 
-        input[type="number"]::-webkit-outer-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
-        }
-    </style>
+  <!-- iOS / Apple Web App Capabilities -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Salary Calc">
+  <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/192/calculator.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1f2937;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 10px;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-200 pb-40">
+<body class="bg-gray-900 text-gray-200 pb-36">
 
-    <div class="max-w-lg mx-auto p-4 md:p-6">
-        <header class="text-center mb-6">
-            <h1 class="text-2xl font-bold text-white tracking-wide">Salary Calculator</h1>
-            <p class="text-gray-400 text-sm">Monthly Payroll & OT Tracker</p>
-        </header>
-
-        <!-- Basic Info Section -->
-        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
-            <h2 class="text-lg font-semibold text-blue-400 mb-4">1. Basic Information</h2>
-            <div class="mb-4">
-                <label class="block text-sm text-gray-400 mb-1">Basic Salary (RM)</label>
-                <input type="number" id="fullSalary" placeholder="e.g., 2580.00" value="2580" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white text-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all">
-            </div>
-            <div class="grid grid-cols-2 gap-4 text-sm">
-                <div class="bg-gray-700 p-3 rounded-lg border border-gray-600">
-                    <span class="block text-gray-400 mb-1">35% Advance</span>
-                    <span id="dispAdvance" class="text-lg font-bold text-yellow-400">RM 0.00</span>
-                </div>
-                <div class="bg-gray-700 p-3 rounded-lg border border-gray-600">
-                    <span class="block text-gray-400 mb-1">65% End Salary</span>
-                    <span id="dispEndSalary" class="text-lg font-bold text-green-400">RM 0.00</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Allowances Section -->
-        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
-            <h2 class="text-lg font-semibold text-blue-400 mb-4">2. Allowances</h2>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">Transport (RM)</label>
-                    <input type="number" id="transportAllow" value="40" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-blue-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">Shift (RM)</label>
-                    <input type="number" id="shiftAllow" value="110" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-blue-500 outline-none">
-                </div>
-            </div>
-        </section>
-
-        <!-- Overtime Tracker -->
-        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-lg font-semibold text-blue-400">3. Overtime Tracker</h2>
-                <div class="text-right">
-                    <span class="text-xs text-gray-400 block">Base Hourly Rate</span>
-                    <span id="hourlyRate" class="text-sm font-bold text-white">RM 0.00</span>
-                </div>
-            </div>
-            
-            <div class="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden">
-                <div class="grid grid-cols-4 gap-1 p-2 bg-gray-700 text-xs font-semibold text-center text-gray-300">
-                    <div>Date</div>
-                    <div>1.5x</div>
-                    <div>2.0x</div>
-                    <div>3.0x</div>
-                </div>
-                <div id="ot-rows" class="max-h-80 overflow-y-auto p-2">
-                    <!-- JS will populate rows here (22nd to 21st) -->
-                </div>
-                <div class="grid grid-cols-4 gap-1 p-3 border-t border-gray-600 bg-gray-800 text-sm font-bold text-center">
-                    <div class="text-left text-gray-400 pl-2">Total Hrs</div>
-                    <div id="tot15" class="text-white">0</div>
-                    <div id="tot20" class="text-white">0</div>
-                    <div id="tot30" class="text-white">0</div>
-                </div>
-                <div class="p-3 bg-gray-700 text-center border-t border-gray-600 flex justify-between items-center px-4">
-                    <span class="text-sm text-gray-400 font-semibold">Total OT Pay: </span>
-                    <span id="dispTotalOT" class="text-lg font-bold text-green-400">RM 0.00</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Deductions Section -->
-        <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
-            <h2 class="text-lg font-semibold text-red-400 mb-4">4. Deductions</h2>
-            <div class="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">EPF (11% Auto)</label>
-                    <input type="number" id="epfDeduct" readonly class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">Advance (35% Auto)</label>
-                    <input type="number" id="advanceDeduct" readonly class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">SOCSO (RM)</label>
-                    <input type="number" id="socsoDeduct" value="20.75" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">EIS (RM)</label>
-                    <input type="number" id="eisDeduct" value="8.30" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">Tax / PCB (RM)</label>
-                    <input type="number" id="taxDeduct" value="61.70" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-1">Food Allowance (RM)</label>
-                    <input type="number" id="foodDeduct" value="0" placeholder="0.00" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none">
-                </div>
-            </div>
-            <div class="flex justify-between items-center border-t border-gray-700 pt-4 px-2">
-                <span class="text-sm text-gray-400 font-semibold">Total Deductions: </span>
-                <span id="dispTotalDeductions" class="text-lg font-bold text-red-400">RM 0.00</span>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Sticky Summary Footer -->
-    <div class="fixed bottom-0 left-0 w-full bg-gray-800 border-t border-gray-700 p-4 shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.5)] z-50">
-        <div class="max-w-lg mx-auto flex justify-between items-center">
-            <div>
-                <div class="text-xs text-gray-400">Gross Pay: <span id="dispGross" class="text-gray-200 font-semibold">RM 0.00</span></div>
-                <div class="text-sm font-semibold text-gray-200 mt-1">End of Month Receive</div>
-            </div>
-            <div class="text-right">
-                <div id="dispNetPay" class="text-2xl font-bold text-green-400 drop-shadow-md">RM 0.00</div>
-            </div>
+  <div class="max-w-lg mx-auto p-4 md:p-6">
+    <!-- Header with Month Selector & Save Badge -->
+    <header class="mb-6 flex justify-between items-center bg-gray-800 p-4 rounded-xl border border-gray-700">
+      <div>
+        <h1 class="text-xl font-bold text-white tracking-wide">Salary Calculator</h1>
+        <div class="flex items-center gap-2 mt-1">
+          <label for="monthSelect" class="text-xs text-gray-400">Month:</label>
+          <select id="monthSelect" class="bg-gray-700 text-white text-xs rounded px-2 py-1 border border-gray-600 outline-none">
+            <!-- Dynamically populated with current & nearby months -->
+          </select>
         </div>
+      </div>
+      <div class="text-right">
+        <span id="saveStatus" class="inline-block text-[11px] font-semibold text-green-400 bg-green-950/80 border border-green-800 px-2.5 py-1 rounded-full transition-opacity duration-300">
+          Auto-Saved ✓
+        </span>
+      </div>
+    </header>
+
+    <!-- 1. Basic Info Section -->
+    <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+      <h2 class="text-lg font-semibold text-blue-400 mb-4">1. Basic Salary</h2>
+      <div class="mb-4">
+        <label class="block text-xs font-semibold text-gray-400 mb-1">BASIC SALARY (RM)</label>
+        <input type="number" id="fullSalary" placeholder="2580.00" value="2580.00" class="save-trigger w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white text-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 text-sm">
+        <div class="bg-gray-700/50 p-3 rounded-lg border border-gray-600/50">
+          <span class="block text-xs text-gray-400">35% ADVANCE</span>
+          <span id="advanceShow" class="text-lg font-bold text-yellow-400">RM 0.00</span>
+        </div>
+        <div class="bg-gray-700/50 p-3 rounded-lg border border-gray-600/50">
+          <span class="block text-xs text-gray-400">65% END MONTH BASIC</span>
+          <span id="endBasicShow" class="text-lg font-bold text-green-400">RM 0.00</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Hourly Rates Section -->
+    <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+      <h2 class="text-lg font-semibold text-blue-400 mb-2">2. Hourly OT Rates</h2>
+      <p class="text-xs text-gray-400 mb-4">Formula: Basic / 26 / 8</p>
+
+      <div class="grid grid-cols-2 gap-3 text-xs">
+        <div class="bg-gray-700/40 p-2.5 rounded-lg border border-gray-700">
+          <span class="text-gray-400 block">BASE RATE/HR</span>
+          <span id="rateBase" class="text-sm font-semibold text-white">RM 0.000</span>
+        </div>
+        <div class="bg-gray-700/40 p-2.5 rounded-lg border border-gray-700">
+          <span class="text-gray-400 block">1.5x OT RATE</span>
+          <span id="rate15" class="text-sm font-semibold text-blue-300">RM 0.000</span>
+        </div>
+        <div class="bg-gray-700/40 p-2.5 rounded-lg border border-gray-700">
+          <span class="text-gray-400 block">2.0x OT RATE</span>
+          <span id="rate20" class="text-sm font-semibold text-purple-300">RM 0.000</span>
+        </div>
+        <div class="bg-gray-700/40 p-2.5 rounded-lg border border-gray-700">
+          <span class="text-gray-400 block">3.0x OT RATE</span>
+          <span id="rate30" class="text-sm font-semibold text-red-300">RM 0.000</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. OT Timesheet Table -->
+    <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-semibold text-blue-400">3. OT Timesheet</h2>
+          <p class="text-xs text-gray-400">Cycle: 22nd to 21st</p>
+        </div>
+        <div class="text-right">
+          <span class="text-xs text-gray-400 block">TOTAL OT</span>
+          <span id="totalOtAmount" class="text-lg font-bold text-green-400">RM 0.00</span>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-lg border border-gray-700">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-gray-700 text-gray-300 uppercase">
+            <tr>
+              <th class="p-2.5">Date</th>
+              <th class="p-2.5 text-center">1.5x</th>
+              <th class="p-2.5 text-center">2.0x</th>
+              <th class="p-2.5 text-center">3.0x</th>
+            </tr>
+          </thead>
+          <tbody id="otTableBody" class="divide-y divide-gray-700/50">
+            <!-- Dynamically Populated -->
+          </tbody>
+        </table>
+      </div>
+      <button id="clearMonthBtn" class="mt-3 text-xs text-red-400 hover:text-red-300 underline block text-right w-full">Clear this month's OT entries</button>
+    </section>
+
+    <!-- 4. Allowances Section -->
+    <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+      <h2 class="text-lg font-semibold text-blue-400 mb-4">4. Allowances</h2>
+      <div class="grid grid-cols-2 gap-3 mb-3">
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">TRANSPORT (RM)</label>
+          <input type="number" id="allowTransport" value="40.00" class="save-trigger w-full bg-gray-700 border border-gray-600 rounded-lg p-2.5 text-white outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">SHIFT (RM)</label>
+          <input type="number" id="allowShift" value="110.00" class="save-trigger w-full bg-gray-700 border border-gray-600 rounded-lg p-2.5 text-white outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      </div>
+      <div class="flex justify-between items-center bg-gray-700/40 p-3 rounded-lg">
+        <span class="text-xs text-gray-300">Total Allowances</span>
+        <span id="totalAllowShow" class="text-sm font-bold text-green-400">RM 150.00</span>
+      </div>
+    </section>
+
+    <!-- 5. Deductions Section -->
+    <section class="bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700">
+      <h2 class="text-lg font-semibold text-blue-400 mb-4">5. Deductions</h2>
+      <div class="space-y-3 text-sm">
+        <div class="flex justify-between items-center bg-gray-700/30 p-2.5 rounded-lg border border-gray-700">
+          <span class="text-xs text-gray-300">EPF Employee (11%)</span>
+          <span id="epfShow" class="font-semibold text-red-400">RM 0.00</span>
+        </div>
+        <div class="flex justify-between items-center bg-gray-700/30 p-2.5 rounded-lg border border-gray-700">
+          <span class="text-xs text-gray-300">Salary Advance (35%)</span>
+          <span id="advDeductShow" class="font-semibold text-red-400">RM 0.00</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <div>
+            <label class="block text-[10px] text-gray-400 mb-1">SOCSO (RM)</label>
+            <input type="number" id="deductSocso" value="20.75" class="save-trigger w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white text-xs outline-none">
+          </div>
+          <div>
+            <label class="block text-[10px] text-gray-400 mb-1">EIS (RM)</label>
+            <input type="number" id="deductEis" value="8.30" class="save-trigger w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white text-xs outline-none">
+          </div>
+          <div>
+            <label class="block text-[10px] text-gray-400 mb-1">TAX (RM)</label>
+            <input type="number" id="deductTax" value="61.70" class="save-trigger w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white text-xs outline-none">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Sticky Bottom Summary Bar -->
+  <div class="fixed bottom-0 left-0 right-0 bg-gray-800/95 backdrop-blur-md border-t border-gray-700 p-4 shadow-2xl">
+    <div class="max-w-lg mx-auto grid grid-cols-2 gap-4 text-center">
+      <div class="border-r border-gray-700 pr-2">
+        <span class="block text-[10px] uppercase tracking-wider text-gray-400">Gross Pay</span>
+        <span id="summaryGross" class="text-lg font-bold text-blue-400">RM 0.00</span>
+      </div>
+      <div class="pl-2">
+        <span class="block text-[10px] uppercase tracking-wider text-gray-400">End Month Receive</span>
+        <span id="summaryEndMonth" class="text-lg font-bold text-green-400">RM 0.00</span>
+      </div>
     </div>
+  </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  <script>
+    const STORAGE_PREFIX = 'salary_calc_month_';
 
-        // Global variables provided by the environment
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-salary-app';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+    function getSelectedMonthKey() {
+      const select = document.getElementById('monthSelect');
+      return STORAGE_PREFIX + (select.value || 'current');
+    }
+
+    function initMonthSelector() {
+      const select = document.getElementById('monthSelect');
+      const now = new Date();
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      
+      for (let i = -3; i <= 3; i++) {
+        const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+        const year = d.getFullYear();
+        const monthIdx = d.getMonth();
+        const val = `${year}-${String(monthIdx + 1).padStart(2, '0')}`;
+        const label = `${months[monthIdx]} ${year}`;
         
-        let db, auth, userId;
+        const opt = document.createElement('option');
+        opt.value = val;
+        opt.textContent = label;
+        if (i === 0) opt.selected = true;
+        select.appendChild(opt);
+      }
+    }
 
-        // Initialize OT Rows (22nd to 21st)
-        const otContainer = document.getElementById('ot-rows');
-        let days = [];
-        for(let i=22; i<=31; i++) days.push(i);
-        for(let i=1; i<=21; i++) days.push(i);
+    function loadSavedData() {
+      const saved = localStorage.getItem(getSelectedMonthKey());
+      if (!saved) return null;
+      try { return JSON.parse(saved); } catch(e) { return null; }
+    }
 
-        let otHTML = '';
-        days.forEach(day => {
-            otHTML += `
-            <div class="grid grid-cols-4 gap-1 items-center text-center py-2 border-b border-gray-800/50">
-                <div class="font-semibold text-gray-400 text-sm">${day}</div>
-                <div><input type="number" id="ot-15-${day}" step="0.5" min="0" class="ot-15 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none" /></div>
-                <div><input type="number" id="ot-20-${day}" step="0.5" min="0" class="ot-20 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none" /></div>
-                <div><input type="number" id="ot-30-${day}" step="0.5" min="0" class="ot-30 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none" /></div>
-            </div>`;
-        });
-        otContainer.innerHTML = otHTML;
+    function showSaveStatus() {
+      const badge = document.getElementById('saveStatus');
+      badge.style.opacity = '1';
+      badge.textContent = 'Auto-Saved ✓';
+    }
 
-        // Formatter for Currency
-        const formatRM = (num) => 'RM ' + num.toLocaleString('en-MY', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-
-        // Calculation Logic
-        function calculate() {
-            // 1. Basic Info
-            const fullSalary = parseFloat(document.getElementById('fullSalary').value) || 0;
-            const advance35 = fullSalary * 0.35;
-            const endSalary65 = fullSalary * 0.65;
-            
-            document.getElementById('dispAdvance').innerText = formatRM(advance35);
-            document.getElementById('dispEndSalary').innerText = formatRM(endSalary65);
-
-            // 2. Allowances
-            const transportAllow = parseFloat(document.getElementById('transportAllow').value) || 0;
-            const shiftAllow = parseFloat(document.getElementById('shiftAllow').value) || 0;
-            const totalAllowances = transportAllow + shiftAllow;
-
-            // 3. Overtime
-            const baseHourly = (fullSalary / 26) / 8;
-            document.getElementById('hourlyRate').innerText = formatRM(baseHourly) + '/hr';
-
-            let sum15 = 0, sum20 = 0, sum30 = 0;
-            
-            document.querySelectorAll('.ot-15').forEach(el => sum15 += parseFloat(el.value) || 0);
-            document.querySelectorAll('.ot-20').forEach(el => sum20 += parseFloat(el.value) || 0);
-            document.querySelectorAll('.ot-30').forEach(el => sum30 += parseFloat(el.value) || 0);
-
-            document.getElementById('tot15').innerText = sum15;
-            document.getElementById('tot20').innerText = sum20;
-            document.getElementById('tot30').innerText = sum30;
-
-            const pay15 = sum15 * baseHourly * 1.5;
-            const pay20 = sum20 * baseHourly * 2.0;
-            const pay30 = sum30 * baseHourly * 3.0;
-            const totalOTPay = pay15 + pay20 + pay30;
-
-            document.getElementById('dispTotalOT').innerText = formatRM(totalOTPay);
-
-            // 4. Deductions
-            const epf = fullSalary * 0.11;
-            document.getElementById('epfDeduct').value = epf.toFixed(2);
-            document.getElementById('advanceDeduct').value = advance35.toFixed(2);
-
-            const socso = parseFloat(document.getElementById('socsoDeduct').value) || 0;
-            const eis = parseFloat(document.getElementById('eisDeduct').value) || 0;
-            const tax = parseFloat(document.getElementById('taxDeduct').value) || 0;
-            const food = parseFloat(document.getElementById('foodDeduct').value) || 0;
-
-            const totalDeductions = epf + advance35 + socso + eis + tax + food;
-            document.getElementById('dispTotalDeductions').innerText = formatRM(totalDeductions);
-
-            // 5. Final Summary
-            const grossPay = fullSalary + totalAllowances + totalOTPay;
-            const netPay = grossPay - totalDeductions;
-
-            document.getElementById('dispGross').innerText = formatRM(grossPay);
-            document.getElementById('dispNetPay').innerText = formatRM(netPay);
+    function saveState() {
+      const otData = {};
+      document.querySelectorAll('.ot-input').forEach(input => {
+        if (input.value && input.value !== '0') {
+          otData[input.dataset.key] = input.value;
         }
+      });
 
-        // --- Data Persistence Logic (Firebase) ---
-        
-        async function loadData() {
-            if (!userId || !db) return;
-            try {
-                const docRef = doc(db, 'artifacts', appId, 'users', userId, 'salaryData', 'currentMonth');
-                const docSnap = await getDoc(docRef);
-                
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    
-                    if(data.fullSalary !== undefined) document.getElementById('fullSalary').value = data.fullSalary;
-                    if(data.transportAllow !== undefined) document.getElementById('transportAllow').value = data.transportAllow;
-                    if(data.shiftAllow !== undefined) document.getElementById('shiftAllow').value = data.shiftAllow;
-                    if(data.socsoDeduct !== undefined) document.getElementById('socsoDeduct').value = data.socsoDeduct;
-                    if(data.eisDeduct !== undefined) document.getElementById('eisDeduct').value = data.eisDeduct;
-                    if(data.taxDeduct !== undefined) document.getElementById('taxDeduct').value = data.taxDeduct;
-                    if(data.foodDeduct !== undefined) document.getElementById('foodDeduct').value = data.foodDeduct;
-                    
-                    if (data.otData) {
-                        days.forEach(day => {
-                            if(data.otData[day]) {
-                                document.getElementById(`ot-15-${day}`).value = data.otData[day][15] || '';
-                                document.getElementById(`ot-20-${day}`).value = data.otData[day][20] || '';
-                                document.getElementById(`ot-30-${day}`).value = data.otData[day][30] || '';
-                            }
-                        });
-                    }
-                    calculate(); // Recalculate with loaded data
-                }
-            } catch (err) {
-                console.error("Error loading data: ", err);
-            }
+      const data = {
+        fullSalary: document.getElementById('fullSalary').value,
+        allowTransport: document.getElementById('allowTransport').value,
+        allowShift: document.getElementById('allowShift').value,
+        deductSocso: document.getElementById('deductSocso').value,
+        deductEis: document.getElementById('deductEis').value,
+        deductTax: document.getElementById('deductTax').value,
+        otData: otData
+      };
+      
+      localStorage.setItem(getSelectedMonthKey(), JSON.stringify(data));
+      showSaveStatus();
+    }
+
+    function buildOtTable(savedOt) {
+      const tbody = document.getElementById('otTableBody');
+      tbody.innerHTML = '';
+      
+      for (let day = 22; day <= 31; day++) {
+        createRow(tbody, `Day ${day}`, `d_${day}`, savedOt);
+      }
+      for (let day = 1; day <= 21; day++) {
+        createRow(tbody, `Day ${day}`, `d_${day}`, savedOt);
+      }
+    }
+
+    function createRow(container, label, key, savedOt) {
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-gray-700/30';
+      
+      const val15 = (savedOt && savedOt[`${key}_15`]) || '';
+      const val20 = (savedOt && savedOt[`${key}_20`]) || '';
+      const val30 = (savedOt && savedOt[`${key}_30`]) || '';
+
+      tr.innerHTML = `
+        <td class="p-2 font-medium text-gray-400">${label}</td>
+        <td class="p-1"><input type="number" data-key="${key}_15" value="${val15}" placeholder="0" class="ot-input save-trigger w-full bg-gray-700 text-center rounded p-1.5 text-white border border-gray-600 outline-none focus:border-blue-500"></td>
+        <td class="p-1"><input type="number" data-key="${key}_20" value="${val20}" placeholder="0" class="ot-input save-trigger w-full bg-gray-700 text-center rounded p-1.5 text-white border border-gray-600 outline-none focus:border-blue-500"></td>
+        <td class="p-1"><input type="number" data-key="${key}_30" value="${val30}" placeholder="0" class="ot-input save-trigger w-full bg-gray-700 text-center rounded p-1.5 text-white border border-gray-600 outline-none focus:border-blue-500"></td>
+      `;
+      container.appendChild(tr);
+    }
+
+    function calculateAll() {
+      const basic = parseFloat(document.getElementById('fullSalary').value) || 0;
+      const transport = parseFloat(document.getElementById('allowTransport').value) || 0;
+      const shift = parseFloat(document.getElementById('allowShift').value) || 0;
+      
+      const socso = parseFloat(document.getElementById('deductSocso').value) || 0;
+      const eis = parseFloat(document.getElementById('deductEis').value) || 0;
+      const tax = parseFloat(document.getElementById('deductTax').value) || 0;
+
+      const advance35 = basic * 0.35;
+      const endBasic65 = basic * 0.65;
+
+      document.getElementById('advanceShow').innerText = `RM ${advance35.toFixed(2)}`;
+      document.getElementById('endBasicShow').innerText = `RM ${endBasic65.toFixed(2)}`;
+
+      const baseHourly = basic / 26 / 8;
+      const rate15 = baseHourly * 1.5;
+      const rate20 = baseHourly * 2.0;
+      const rate30 = baseHourly * 3.0;
+
+      document.getElementById('rateBase').innerText = `RM ${baseHourly.toFixed(3)}`;
+      document.getElementById('rate15').innerText = `RM ${rate15.toFixed(3)}`;
+      document.getElementById('rate20').innerText = `RM ${rate20.toFixed(3)}`;
+      document.getElementById('rate30').innerText = `RM ${rate30.toFixed(3)}`;
+
+      let h15 = 0, h20 = 0, h30 = 0;
+      document.querySelectorAll('.ot-input').forEach(input => {
+        const val = parseFloat(input.value) || 0;
+        if (input.dataset.key.endsWith('_15')) h15 += val;
+        if (input.dataset.key.endsWith('_20')) h20 += val;
+        if (input.dataset.key.endsWith('_30')) h30 += val;
+      });
+
+      const totalOtMoney = (h15 * rate15) + (h20 * rate20) + (h30 * rate30);
+      document.getElementById('totalOtAmount').innerText = `RM ${totalOtMoney.toFixed(2)}`;
+
+      const totalAllowances = transport + shift;
+      document.getElementById('totalAllowShow').innerText = `RM ${totalAllowances.toFixed(2)}`;
+
+      const grossPay = basic + totalOtMoney + totalAllowances;
+      document.getElementById('summaryGross').innerText = `RM ${grossPay.toFixed(2)}`;
+
+      const epf = basic * 0.11;
+      document.getElementById('epfShow').innerText = `RM ${epf.toFixed(2)}`;
+      document.getElementById('advDeductShow').innerText = `RM ${advance35.toFixed(2)}`;
+
+      const endOfMonthPay = grossPay - epf - advance35 - socso - eis - tax;
+      document.getElementById('summaryEndMonth').innerText = `RM ${endOfMonthPay.toFixed(2)}`;
+
+      saveState();
+    }
+
+    function reloadForMonth() {
+      const saved = loadSavedData();
+      if (saved) {
+        if (saved.fullSalary) document.getElementById('fullSalary').value = saved.fullSalary;
+        if (saved.allowTransport) document.getElementById('allowTransport').value = saved.allowTransport;
+        if (saved.allowShift) document.getElementById('allowShift').value = saved.allowShift;
+        if (saved.deductSocso) document.getElementById('deductSocso').value = saved.deductSocso;
+        if (saved.deductEis) document.getElementById('deductEis').value = saved.deductEis;
+        if (saved.deductTax) document.getElementById('deductTax').value = saved.deductTax;
+      }
+      buildOtTable(saved ? saved.otData : null);
+      calculateAll();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initMonthSelector();
+      reloadForMonth();
+
+      document.getElementById('monthSelect').addEventListener('change', reloadForMonth);
+      
+      document.addEventListener('input', (e) => {
+        if (e.target.classList.contains('save-trigger')) {
+          calculateAll();
         }
+      });
 
-        async function saveData() {
-            if (!userId || !db) return;
-            const data = {
-                fullSalary: document.getElementById('fullSalary').value,
-                transportAllow: document.getElementById('transportAllow').value,
-                shiftAllow: document.getElementById('shiftAllow').value,
-                socsoDeduct: document.getElementById('socsoDeduct').value,
-                eisDeduct: document.getElementById('eisDeduct').value,
-                taxDeduct: document.getElementById('taxDeduct').value,
-                foodDeduct: document.getElementById('foodDeduct').value,
-                otData: {}
-            };
-            
-            days.forEach(day => {
-                data.otData[day] = {
-                    15: document.getElementById(`ot-15-${day}`).value,
-                    20: document.getElementById(`ot-20-${day}`).value,
-                    30: document.getElementById(`ot-30-${day}`).value
-                };
-            });
-
-            try {
-                const docRef = doc(db, 'artifacts', appId, 'users', userId, 'salaryData', 'currentMonth');
-                await setDoc(docRef, data);
-            } catch (err) {
-                console.error("Error saving data: ", err);
-            }
+      document.addEventListener('change', (e) => {
+        if (e.target.classList.contains('save-trigger')) {
+          calculateAll();
         }
+      });
 
-        let saveTimeout;
-        function handleInput() {
-            calculate(); // Update the UI instantly
-            
-            // Wait 1.5 seconds after typing stops to save to the database to prevent spamming saves
-            clearTimeout(saveTimeout);
-            saveTimeout = setTimeout(saveData, 1500);
+      document.getElementById('clearMonthBtn').addEventListener('click', () => {
+        if (confirm('Clear all OT entries for this month?')) {
+          localStorage.removeItem(getSelectedMonthKey());
+          reloadForMonth();
         }
+      });
 
-        // Initialize App & Firebase
-        async function initApp() {
-            // Initial Calculation for default layout
-            calculate();
-            
-            // Listen for input changes anywhere on the page
-            document.body.addEventListener('input', handleInput);
-
-            // Connect to Cloud Database
-            if (firebaseConfig) {
-                try {
-                    const app = initializeApp(firebaseConfig);
-                    db = getFirestore(app);
-                    auth = getAuth(app);
-                    
-                    // Sign in silently to save private data
-                    if (typeof __initial_auth_token !== 'undefined') {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-                    
-                    userId = auth.currentUser?.uid;
-                    if (userId) {
-                        await loadData();
-                    }
-                } catch (error) {
-                    console.error("Firebase init failed:", error);
-                }
-            }
-        }
-
-        initApp();
-    </script>
+      window.addEventListener('beforeunload', saveState);
+    });
+  </script>
 </body>
 </html>
