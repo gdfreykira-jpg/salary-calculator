@@ -1,0 +1,358 @@
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html lang=&quot;en&quot; class=&quot;dark&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;title&gt;****** &amp; OT Calculator&lt;/title&gt;</p>
+<p>&nbsp; &nbsp; &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;</p>
+<p>&nbsp; &nbsp; &lt;**** href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;style&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; body {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-family: &apos;Inter&apos;, sans-serif;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-tap-highlight-color: transparent;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Custom scrollbar for webkit */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 6px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar-track {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #1f2937;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar-thumb {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #4b5563;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border-radius: 10px;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ::-webkit-scrollbar-thumb:hover {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #6b7280;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; input[type=&quot;number&quot;]::-webkit-inner-spin-button,&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; input[type=&quot;number&quot;]::-webkit-outer-spin-button {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-appearance: none;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin: 0;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body class=&quot;bg-gray-900 text-gray-2** pb-40&quot;&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;div class=&quot;max-w-lg mx-auto p-4 md:p-6&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;header class=&quot;text-****** mb-6&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1 class=&quot;text-2xl font-bold text-white tracking-wide&quot;&gt;Salary Calculator&lt;/h1&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-gray-400 text-sm&quot;&gt;Monthly Payroll &amp; OT Tracker&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/header&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Basic Info Section --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;bg-gray-800 rounded-xl p-5 shadow-lg mb-5 border border-gray-700&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-lg font-semibold text-blue-400 mb-4&quot;&gt;1. Basic Information&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;mb-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;***** text-sm text-gray-400 mb-1&quot;&gt;Basic Salary (RM)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;fullSalary&quot; placeholder=&quot;e.g., 2580.00&quot; value=&quot;2580&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-3 text-white text-lg focus:ring-2 focus:ring-blue-5** outline-**** transition-all&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;**** grid-cols-2 gap-4 text-sm&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;bg-gray-700 p-3 rounded-lg border border-gray-600&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;block text-gray-400 mb-1&quot;&gt;35% Advance&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;dispAdvance&quot; class=&quot;text-lg font-bold text-yellow-400&quot;&gt;** 0.00&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;bg-gray-700 p-3 rounded-lg ****** border-gray-600&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;block text-gray-400 mb-1&quot;&gt;65% End Salary&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;dispEndSalary&quot; class=&quot;text-lg font-bold text-green-400&quot;&gt;RM 0.00&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Allowances Section --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;bg-gray-8** rounded-xl p-5 shadow-** mb-5 ****** border-gray-700&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-lg font-******** text-blue-4** mb-4&quot;&gt;2. Allowances&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;**** grid-cols-2 gap-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;***** text-sm text-gray-400 mb-1&quot;&gt;Transport (RM)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;transportAllow&quot; value=&quot;40&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-blue-5** outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;***** text-sm text-gray-400 mb-1&quot;&gt;Shift (RM)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;shiftAllow&quot; value=&quot;110&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-***** focus:ring-2 focus:ring-blue-500 outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Overtime Tracker --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;******* class=&quot;bg-gray-8** rounded-** p-5 shadow-lg mb-5 border border-gray-700&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;flex justify-between items-****** mb-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-** font-******** text-blue-400&quot;&gt;3. Overtime Tracker&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-right&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;**** class=&quot;text-xs text-gray-400 block&quot;&gt;**** ****** Rate&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;hourlyRate&quot; class=&quot;text-sm font-bold text-white&quot;&gt;RM 0.00&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;bg-gray-900 rounded-lg ****** border-gray-700 overflow-hidden&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-4 gap-1 p-2 bg-gray-7** text-xs font-semibold text-center text-gray-300&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;Date&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;1.5x&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;2.0x&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;3.0x&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** id=&quot;ot-rows&quot; class=&quot;max-h-80 overflow-y-auto p-2&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- ** will ******** **** here (22nd to 21st) --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;grid grid-cols-4 gap-1 p-3 border-t border-gray-6** bg-gray-8** text-sm font-bold text-center&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;text-left text-gray-400 pl-2&quot;&gt;Total Hrs&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;tot15&quot; class=&quot;text-white&quot;&gt;0&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;tot20&quot; class=&quot;text-white&quot;&gt;0&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** id=&quot;tot30&quot; class=&quot;text-white&quot;&gt;0&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;p-3 bg-gray-700 text-center border-t border-gray-6** **** justify-******* items-center px-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;text-sm text-gray-400 font-semibold&quot;&gt;Total OT Pay: &lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span id=&quot;dispTotalOT&quot; class=&quot;text-** font-**** text-green-400&quot;&gt;RM 0.00&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Deductions Section --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;bg-gray-8** rounded-xl p-5 shadow-lg mb-5 border border-gray-700&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-** font-******** text-red-400 mb-4&quot;&gt;4. Deductions&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-2 gap-4 mb-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;***** class=&quot;block text-sm text-gray-4** mb-1&quot;&gt;EPF (11% Auto)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;epfDeduct&quot; ******** class=&quot;w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm text-gray-400 mb-1&quot;&gt;Advance (35% Auto)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;***** type=&quot;number&quot; id=&quot;advanceDeduct&quot; readonly class=&quot;w-full bg-gray-9** ****** border-gray-700 rounded-lg p-2 text-red-400 font-semibold focus:outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm text-gray-400 mb-1&quot;&gt;***** (RM)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;socsoDeduct&quot; value=&quot;20.75&quot; class=&quot;w-full bg-gray-700 ****** border-gray-6** rounded-lg p-2 text-***** focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-** text-gray-400 mb-1&quot;&gt;EIS (RM)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;eisDeduct&quot; value=&quot;8.30&quot; class=&quot;w-**** bg-gray-7** border border-gray-6** rounded-** p-2 text-white focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-** text-gray-400 mb-1&quot;&gt;Tax / *** (RM)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;taxDeduct&quot; value=&quot;61.70&quot; class=&quot;w-**** bg-gray-7** border border-gray-600 rounded-lg p-2 text-***** focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;label class=&quot;block text-sm text-gray-4** mb-1&quot;&gt;**** Allowance (RM)&lt;/label&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;number&quot; id=&quot;foodDeduct&quot; value=&quot;0&quot; placeholder=&quot;0.00&quot; class=&quot;w-full bg-gray-700 border border-gray-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-red-500 outline-none&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;**** justify-between items-center border-t border-gray-700 pt-4 px-2&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;text-sm text-gray-400 font-semibold&quot;&gt;Total Deductions: &lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;**** id=&quot;dispTotalDeductions&quot; class=&quot;text-** font-bold text-red-400&quot;&gt;RM 0.00&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- ****** Summary Footer --&gt;</p>
+<p>&nbsp; &nbsp; &lt;*** class=&quot;fixed bottom-0 left-0 w-**** bg-gray-800 border-t border-gray-700 p-4 shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.5)] z-50&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;max-w-lg mx-auto flex justify-between items-center&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-xs text-gray-400&quot;&gt;Gross Pay: &lt;span id=&quot;dispGross&quot; class=&quot;text-gray-2** font-semibold&quot;&gt;** 0.00&lt;/span&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-sm font-******** text-gray-2** mt-1&quot;&gt;*** of Month Receive&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;text-right&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;dispNetPay&quot; class=&quot;text-2xl font-bold text-green-400 drop-shadow-md&quot;&gt;RM 0.00&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &lt;/div&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;script type=&quot;module&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; import { initializeApp } from &quot;https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; import { getAuth, signInAnonymously, signInWithCustomToken } from &quot;https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js&quot;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; import { getFirestore, doc, getDoc, setDoc } from &quot;https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js&quot;;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Global variables ******** by the environment</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const appId = typeof __app_id !== &apos;undefined&apos; ? __app_** : &apos;default-salary-app&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const firebaseConfig = typeof __firebase_config !== &apos;undefined&apos; ? JSON.parse(__firebase_config) : null;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; let db, auth, userId;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Initialize OT Rows (22nd to 21st)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const otContainer = document.getElementById(&apos;ot-rows&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; let days = [];</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; for(*** i=22; i&lt;=31; i++) days.push(i);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; for(let i=1; i&lt;=21; i++) days.push(i);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; let ****** = &apos;&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; days.forEach(day =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; otHTML += `</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-4 gap-1 items-center text-center py-2 border-b border-gray-800/50&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;font-semibold text-gray-400 text-sm&quot;&gt;${day}&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;&lt;input type=&quot;number&quot; id=&quot;ot-15-${day}&quot; step=&quot;0.5&quot; min=&quot;0&quot; class=&quot;ot-15 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none&quot; /&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;&lt;input type=&quot;number&quot; id=&quot;ot-20-${day}&quot; step=&quot;0.5&quot; min=&quot;0&quot; class=&quot;ot-20 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none&quot; /&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;&lt;input type=&quot;number&quot; id=&quot;ot-30-${day}&quot; step=&quot;0.5&quot; min=&quot;0&quot; class=&quot;ot-30 w-full bg-gray-700 border border-gray-600 rounded p-1.5 text-center text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none&quot; /&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; });</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; otContainer.innerHTML = otHTML;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Formatter *** Currency</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const formatRM = (num) =&gt; &apos;RM &apos; + num.toLocaleString(&apos;en-MY&apos;, {minimumFractionDigits: 2, maximumFractionDigits: 2});</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Calculation Logic</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function calculate() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 1. ***** Info</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ********** = parseFloat(document.getElementById(&apos;fullSalary&apos;).value) || 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const advance35 = fullSalary * 0.35;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const endSalary65 = fullSalary * 0.65;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispAdvance&apos;).********* = formatRM(advance35);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispEndSalary&apos;).innerText = formatRM(endSalary65);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 2. Allowances</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ************** = parseFloat(document.getElementById(&apos;transportAllow&apos;).value) || 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const shiftAllow = parseFloat(document.getElementById(&apos;shiftAllow&apos;).value) || 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const totalAllowances = transportAllow + shiftAllow;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 3. Overtime</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const baseHourly = (********** / 26) / 8;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;hourlyRate&apos;).********* = formatRM(baseHourly) + &apos;/hr&apos;;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; let sum15 = 0, sum20 = 0, sum30 = 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelectorAll(&apos;.ot-15&apos;).forEach(el =&gt; sum15 += parseFloat(el.value) || 0);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelectorAll(&apos;.ot-20&apos;).forEach(** =&gt; sum20 += parseFloat(el.value) || 0);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelectorAll(&apos;.ot-30&apos;).forEach(el =&gt; sum30 += parseFloat(el.value) || 0);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;tot15&apos;).innerText = sum15;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;tot20&apos;).innerText = sum20;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;tot30&apos;).innerText = sum30;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** pay15 = sum15 * baseHourly * 1.5;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const pay20 = sum20 * baseHourly * 2.0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const pay30 = sum30 * ********** * 3.0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ********** = pay15 + pay20 + pay30;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispTotalOT&apos;).innerText = formatRM(totalOTPay);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 4. Deductions</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const epf = fullSalary * 0.11;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;epfDeduct&apos;).***** = epf.toFixed(2);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;advanceDeduct&apos;).***** = advance35.toFixed(2);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** socso = parseFloat(document.getElementById(&apos;socsoDeduct&apos;).value) || 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** eis = parseFloat(document.getElementById(&apos;eisDeduct&apos;).value) || 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** tax = parseFloat(document.getElementById(&apos;taxDeduct&apos;).value) || 0;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const food = parseFloat(document.getElementById(&apos;foodDeduct&apos;).value) || 0;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const totalDeductions = epf + advance35 + socso + *** + tax + food;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispTotalDeductions&apos;).innerText = formatRM(totalDeductions);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 5. ***** Summary</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** grossPay = ********** + totalAllowances + totalOTPay;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ****** = grossPay - totalDeductions;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispGross&apos;).innerText = formatRM(grossPay);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;dispNetPay&apos;).innerText = formatRM(netPay);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // --- Data *********** Logic (Firebase) ---</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; async function loadData() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (!****** || !db) return;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; try {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** docRef = doc(db, &apos;artifacts&apos;, appId, &apos;users&apos;, userId, &apos;salaryData&apos;, &apos;currentMonth&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ******* = await getDoc(docRef);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (docSnap.exists()) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** data = docSnap.data();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.fullSalary !== undefined) document.getElementById(&apos;fullSalary&apos;).value = data.fullSalary;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.************** !== undefined) document.getElementById(&apos;transportAllow&apos;).value = data.transportAllow;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.********** !== undefined) document.getElementById(&apos;shiftAllow&apos;).***** = data.shiftAllow;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.socsoDeduct !== undefined) document.getElementById(&apos;socsoDeduct&apos;).***** = data.socsoDeduct;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.eisDeduct !== undefined) document.getElementById(&apos;eisDeduct&apos;).value = data.eisDeduct;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.********* !== undefined) document.getElementById(&apos;taxDeduct&apos;).value = data.taxDeduct;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.foodDeduct !== undefined) document.getElementById(&apos;foodDeduct&apos;).***** = data.foodDeduct;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (data.otData) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; days.forEach(day =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(data.otData[day]) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(`ot-15-${day}`).value = data.otData[day][15] || &apos;&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(`ot-20-${day}`).value = data.otData[day][20] || &apos;&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(`ot-30-${day}`).value = data.otData[day][30] || &apos;&apos;;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calculate(); // Recalculate with ****** data</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } catch (err) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(&quot;Error loading data: &quot;, err);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; async function saveData() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ** (!userId || !db) return;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const data = {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fullSalary: document.getElementById(&apos;fullSalary&apos;).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transportAllow: document.getElementById(&apos;transportAllow&apos;).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shiftAllow: document.getElementById(&apos;shiftAllow&apos;).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; socsoDeduct: document.getElementById(&apos;socsoDeduct&apos;).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; eisDeduct: document.getElementById(&apos;eisDeduct&apos;).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; taxDeduct: document.getElementById(&apos;taxDeduct&apos;).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foodDeduct: document.getElementById(&apos;foodDeduct&apos;).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; otData: {}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; days.forEach(day =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data.otData[day] = {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 15: document.getElementById(`ot-15-${day}`).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 20: document.getElementById(`ot-20-${day}`).value,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 30: document.getElementById(`ot-30-${day}`).value</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; try {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** docRef = doc(db, &apos;artifacts&apos;, appId, &apos;users&apos;, userId, &apos;salaryData&apos;, &apos;currentMonth&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; await setDoc(docRef, data);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } catch (err) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(&quot;***** saving data: &quot;, err);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; let saveTimeout;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function handleInput() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calculate(); // Update the ** instantly</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Wait 1.5 ******* ***** typing ***** to **** to the database to prevent spamming saves</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearTimeout(saveTimeout);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; saveTimeout = setTimeout(saveData, 1500);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Initialize App &amp; Firebase</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; async function initApp() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Initial Calculation for ******* layout</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calculate();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Listen for input changes anywhere on the page</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.body.addEventListener(&apos;input&apos;, handleInput);</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Connect ** Cloud Database</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (firebaseConfig) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; try {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** app = initializeApp(firebaseConfig);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; db = getFirestore(app);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; **** = getAuth(app);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Sign ** ******** to **** private data</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (typeof __initial_auth_token !== &apos;undefined&apos;) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; await signInWithCustomToken(auth, __initial_auth_token);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** signInAnonymously(auth);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; userId = auth.currentUser?.uid;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (userId) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; await loadData();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } catch (error) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(&quot;Firebase **** failed:&quot;, error);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; initApp();</p>
+<p>&nbsp; &nbsp; &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<div style="color: red">Word to HTML trial - please <a href="https://wordtohtml.net/site/payment">Go PRO</a> to get whole HTML.</div>
